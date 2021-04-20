@@ -67,15 +67,13 @@ App = {
         App.account = account;
         $('#accountAddress').html("Your Account: " + account);
       }
-      console.log(account);
     })
-    
-    App.loading = true;
    
     var loader  = $('#loader');
     var content = $('#content');
 
     if (App.userMessage == false) {
+      App.loading = true;
       loader.show();
       content.hide();
     } else {
