@@ -13,15 +13,27 @@ App = {
   },
 
   initWeb3: function() {
-    if (typeof web3 !== 'undefined') {
-      // If a web3 instance is already provided by Meta Mask.
-      App.web3Provider = web3.currentProvider;
-      web3 = new Web3(web3.currentProvider);
-    } else {
-      // Specify default instance if no web3 instance provided
-      App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
-      web3 = new Web3(App.web3Provider);
+   if (window.ethereum) {
+    const web3 = new Web3(window.ethereum);
+    App.web3Provider = web3;
+    try {
+      await window.ethereum.enable();
+    } catch (error) {
+      console.error(error);
     }
+  }
+  else if (window.web3) {
+    const web3 = window.web3;
+    App.web3Provider = web3;
+    console.log('Injected web3 detected.');
+  }
+  // Fallback to localhost; use dev console port by default...
+  else {
+    const provider = new Web3.providers.HttpProvider('http://localhost:8545');
+    const web3 = new Web3(provider);
+    App.web3Provider = web3;
+    console.log('No web3 instance injected, using Local web3.');
+  }
     return App.initContracts();
   },
 
