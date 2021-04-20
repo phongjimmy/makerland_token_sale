@@ -18,10 +18,6 @@ App = {
     window.web3 = new Web3(window.web3.currentProvider);
     App.web3Provider = window.web3.currentProvider;
     window.ethereum.enable();
-   } else if (typeof web3 !== 'undefined') {
-      // If a web3 instance is already provided by Meta Mask.
-      App.web3Provider = web3.currentProvider;
-      web3 = new Web3(web3.currentProvider);
    } else {
       $('.message').html("Please use a DAPP Browser");
       App.userMessage = true;
