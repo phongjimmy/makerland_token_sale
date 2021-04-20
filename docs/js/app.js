@@ -26,13 +26,13 @@ App = {
   },
 
   initContracts: function() {
-    $.getJSON("../MakerlandTokenSale.json", function(dappTokenSale) {
+    $.getJSON("MakerlandTokenSale.json", function(dappTokenSale) {
       App.contracts.DappTokenSale = TruffleContract(dappTokenSale);
       App.contracts.DappTokenSale.setProvider(App.web3Provider);
       App.contracts.DappTokenSale.deployed().then(function(dappTokenSale) {
       });
     }).done(function() {
-      $.getJSON("../MakerlandToken.json", function(dappToken) {
+      $.getJSON("MakerlandToken.json", function(dappToken) {
         App.contracts.DappToken = TruffleContract(dappToken);
         App.contracts.DappToken.setProvider(App.web3Provider);
         App.contracts.DappToken.deployed().then(function(dappToken) {
