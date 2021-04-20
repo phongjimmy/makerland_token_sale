@@ -111,9 +111,9 @@ App = {
       var progressPercent = (Math.ceil(App.tokensSold) / App.tokensAvailable) * 100;
       $('#progress').css('width', progressPercent + '%');
 
-      // Load token contract
+      // Load token sale contract
       App.contracts.DappTokenSale.deployed().then(function(instance) {
-        dappTokenInstance = instance;
+        dappTokenSaleInstance = instance;
         return dappTokenSaleInstance.balanceOf.call(App.account);
       }).then(function(balance) {
         $('.dapp-balance').html(balance.toNumber());
