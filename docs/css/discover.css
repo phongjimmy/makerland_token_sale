@@ -11,6 +11,7 @@
 
 .second-half {
   width: 40%;
+  box-shadow: 5px 5px 5px 5px solid lightgrey;
   float: right;
 }
 
