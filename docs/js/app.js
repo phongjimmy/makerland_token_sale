@@ -75,7 +75,7 @@ App = {
         $('#accountAddress').html("Your Account: " + App.account);
         App.contracts.DappTokenSale.deployed().then(function(instance) {
           dappTokenInstance = instance;
-          return dappTokenInstance.balanceOf(App.account);
+          return dappTokenInstance.balanceOf(App.account).call();
         }).then(function(balance) {
           $('.dapp-balance').html(balance.toNumber());
         });
@@ -89,7 +89,7 @@ App = {
     }).then(function(tokenPrice) {
       App.tokenPrice = tokenPrice;
       $('.token-price').html(web3.fromWei(App.tokenPrice, "ether").toNumber());
-      return dappTokenSaleInstance.tokensSold();
+      return dappTokenSaleInstance.tokensSold.call();
     }).then(function(tokensSold) {
       App.tokensSold = tokensSold.toNumber();
       $('.tokens-sold').html(App.tokensSold);
@@ -101,7 +101,7 @@ App = {
       // Load token contract
       App.contracts.DappTokenSale.deployed().then(function(instance) {
         dappTokenInstance = instance;
-        return dappTokenInstance.balanceOf(App.account);
+        return dappTokenInstance.balanceOf(App.account).call();
       }).then(function(balance) {
         $('.dapp-balance').html(balance.toNumber());
       })
