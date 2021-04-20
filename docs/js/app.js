@@ -114,7 +114,7 @@ App = {
       // Load token contract
       App.contracts.DappTokenSale.deployed().then(function(instance) {
         dappTokenInstance = instance;
-        return dappTokenInstance.balanceOf.call(App.account);
+        return dappTokenSaleInstance.balanceOf.call(App.account);
       }).then(function(balance) {
         $('.dapp-balance').html(balance.toNumber());
         App.loading = false;
