@@ -7,39 +7,27 @@ App = {
   tokensSold: 0,
   tokensAvailable: 75000000,
 
-  init: async function() {
+  init: function() {
     console.log("App initialized...")
     return App.initWeb3();
   },
 
-  initWeb3: async function() {
-   if (window.ethereum) {
-    const web3 = new Web3(window.ethereum);
-    App.web3Provider = window.ethereum;
-     console.log("using window.ethereum");
-    try {
-      await window.ethereum.enable();
-    } catch (error) {
-      console.error(error);
+  initWeb3: function() {
+    if (typeof web3 !== 'undefined') {
+      // If a web3 instance is already provided by Meta Mask.
+      App.web3Provider = web3.currentProvider;
+      web3 = new Web3(web3.currentProvider);
+      console.log("metamask");
+    } else {
+      // Specify default instance if no web3 instance provided
+      console.log("local");
+      App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+      web3 = new Web3(App.web3Provider);
     }
-  }
-  else if (window.web3) {
-    console.log("using window.web3");
-    const web3 = window.web3;
-    App.web3Provider = window;
-    console.log('Injected web3 detected.');
-  }
-  // Fallback to localhost; use dev console port by default...
-  else {
-    const provider = new Web3.providers.HttpProvider('http://localhost:8545');
-    const web3 = new Web3(provider);
-    App.web3Provider = provider;
-    console.log('No web3 instance injected, using Local web3.');
-  }
     return App.initContracts();
   },
 
-  initContracts: async function() {
+  initContracts: function() {
     $.getJSON("MakerlandTokenSale.json", function(dappTokenSale) {
       App.contracts.DappTokenSale = TruffleContract(dappTokenSale);
       App.contracts.DappTokenSale.setProvider(App.web3Provider);
@@ -59,7 +47,7 @@ App = {
   },
 
   // Listen for events emitted from the contract
-  listenForEvents: async function() {
+  listenForEvents: function() {
     App.contracts.DappTokenSale.deployed().then(function(instance) {
       instance.Sell({}, {
         fromBlock: 0,
@@ -71,7 +59,7 @@ App = {
     })
   },
 
-  render: async function() {
+  render: function() {
     if (App.loading) {
       return;
     }
@@ -79,7 +67,7 @@ App = {
 
     var loader  = $('#loader');
     var content = $('#content');
-    
+
     loader.show();
     content.hide();
 
@@ -131,7 +119,7 @@ App = {
     });
   },
 
-  buyTokens: async function() {
+  buyTokens: function() {
     $('#content').hide();
     $('#loader').show();
     var numberOfTokens = $('#numberOfTokens').val();
@@ -151,8 +139,8 @@ App = {
   }
 }
 
-$(async function() {
-  $(window).load(async function() {
+$(function() {
+  $(window).load(function() {
     App.init();
   })
 });
