@@ -6,6 +6,7 @@ App = {
   tokenPrice: 10000000000000,
   tokensSold: 0,
   tokensAvailable: 75000000,
+  message: false
 
   init: function() {
     console.log("App initialized...")
@@ -17,8 +18,13 @@ App = {
     window.web3 = new Web3(window.web3.currentProvider);
     App.web3Provider = window.web3.currentProvider;
     window.ethereum.enable();
+   } else if (typeof web3 !== 'undefined') {
+      // If a web3 instance is already provided by Meta Mask.
+      App.web3Provider = web3.currentProvider;
+      web3 = new Web3(web3.currentProvider);
    } else {
-      $('#loading').html("Please use a DAPP Browser");
+      $('.message').html("Please use a DAPP Browser");
+      App.message = true;
    }
     return App.initContracts();
   },
@@ -51,7 +57,7 @@ App = {
       }).watch(function(error, event) {
         console.log("event triggered", event);
         if (error) {
-          $('#loader').html(error);
+          console.log(error);
         }
         App.render();
       })
@@ -73,9 +79,11 @@ App = {
     var loader  = $('#loader');
     var content = $('#content');
 
-    loader.show();
-    content.hide();
-
+    if (App.message == false) {
+      loader.show();
+      content.hide();
+    }
+    
     App.web3Provider.on('accountsChanged', function (accounts) {
         App.account = accounts[0];
         $('#accountAddress').html("Your Account: " + App.account);
