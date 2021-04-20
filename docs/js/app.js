@@ -75,7 +75,7 @@ App = {
         $('#accountAddress').html("Your Account: " + App.account);
         App.contracts.DappTokenSale.deployed().then(function(instance) {
           dappTokenInstance = instance;
-          return dappTokenInstance.balanceOf(App.account).call();
+          return dappTokenInstance.balanceOf.call(App.account);
         }).then(function(balance) {
           $('.dapp-balance').html(balance.toNumber());
         });
@@ -101,7 +101,7 @@ App = {
       // Load token contract
       App.contracts.DappTokenSale.deployed().then(function(instance) {
         dappTokenInstance = instance;
-        return dappTokenInstance.balanceOf(App.account).call();
+        return dappTokenInstance.balanceOf.call(App.account);
       }).then(function(balance) {
         $('.dapp-balance').html(balance.toNumber());
       })
