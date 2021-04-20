@@ -78,6 +78,10 @@ App = {
     if (App.userMessage == false) {
       loader.show();
       content.hide();
+    } else {
+      loader.hide();
+      content.hide();
+      App.loading = false;
     }
     
     App.web3Provider.on('accountsChanged', function (accounts) {
