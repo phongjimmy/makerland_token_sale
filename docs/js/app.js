@@ -48,6 +48,9 @@ App = {
         toBlock: 'latest',
       }).watch(function(error, event) {
         console.log("event triggered", event);
+        if (error) {
+          $('#content').html(error);
+        }
         App.render();
       })
     })
@@ -116,7 +119,6 @@ App = {
     $('#content').hide();
     $('#loader').show();
     var numberOfTokens = $('#numberOfTokens').val();
-    try {
       App.contracts.DappTokenSale.deployed().then(function(instance) {
         return instance.buyTokens.call(numberOfTokens, {
           from: App.account,
@@ -130,10 +132,6 @@ App = {
         $('#content').show();
         // Wait for Sell event
       });
-    }catch(err) {
-      console.log(err);
-      $('#content').html(err);
-    }
   }
 }
 
