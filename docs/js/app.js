@@ -14,7 +14,7 @@ App = {
   },
 
   initWeb3: function() {
-   if (window.web3) {
+   if (window.web3 !== null && window.web3) {
     window.web3 = new Web3(window.web3.currentProvider);
     App.web3Provider = window.web3.currentProvider;
     window.ethereum.enable();
