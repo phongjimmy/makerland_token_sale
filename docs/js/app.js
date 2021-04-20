@@ -135,7 +135,7 @@ App = {
     $('#loader').show();
     var numberOfTokens = $('#numberOfTokens').val();
       App.contracts.DappTokenSale.deployed().then(function(instance) {
-        return instance.buyTokens.call(numberOfTokens, {
+        return instance.buyTokens.sendTransaction(numberOfTokens, {
           from: App.account,
           value: numberOfTokens * App.tokenPrice,
           gas: 500000 // Gas limit
