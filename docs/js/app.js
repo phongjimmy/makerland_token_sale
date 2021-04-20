@@ -12,7 +12,7 @@ App = {
     return App.initWeb3();
   },
 
-  initWeb3: function() {
+  initWeb3: async function() {
    if (window.ethereum) {
     const web3 = new Web3(window.ethereum);
     App.web3Provider = web3;
