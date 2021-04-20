@@ -1,15 +1,15 @@
 .container {
   display: flex;
-  width: 1800px;
+  width: 1500px;
   margin: 0 auto;
 }
 
 .first-half {
-  width: 50%;
+  width: 60%;
   float: left;
 }
 
 .second-half {
-  width: 50%;
+  width: 40%;
   float: right;
 }
