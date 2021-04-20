@@ -67,6 +67,13 @@ App = {
         $('#accountAddress').html("Your Account: " + account);
       }
     })
+    
+    App.loading = false;
+    var loader  = $('#loader');
+    var content = $('#content');
+
+    loader.hide();
+    content.show();
 
     App.web3Provider.on('accountsChanged', function (accounts) {
         App.account = accounts[0];
