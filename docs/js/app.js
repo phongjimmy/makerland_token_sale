@@ -110,7 +110,13 @@ App = {
 
       var progressPercent = (Math.ceil(App.tokensSold) / App.tokensAvailable) * 100;
       $('#progress').css('width', progressPercent + '%');
-
+      return dappTokenSaleInstance.hasClosed.call();
+    }).then(function(status) {
+      if (status == true) {
+        $('.status').html("closed");
+      } else if (status == false) {
+        $('.status').html("open");
+      }
       // Load token sale contract
       App.contracts.DappTokenSale.deployed().then(function(instance) {
         dappTokenSaleInstance = instance;
