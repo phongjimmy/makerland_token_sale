@@ -15,7 +15,7 @@ App = {
   initWeb3: async function() {
    if (window.ethereum) {
     const web3 = new Web3(window.ethereum);
-    App.web3Provider = web3;
+    App.web3Provider = window.ethereum;
     try {
       await window.ethereum.enable();
     } catch (error) {
@@ -24,14 +24,14 @@ App = {
   }
   else if (window.web3) {
     const web3 = window.web3;
-    App.web3Provider = web3;
+    App.web3Provider = window;
     console.log('Injected web3 detected.');
   }
   // Fallback to localhost; use dev console port by default...
   else {
     const provider = new Web3.providers.HttpProvider('http://localhost:8545');
     const web3 = new Web3(provider);
-    App.web3Provider = web3;
+    App.web3Provider = provider;
     console.log('No web3 instance injected, using Local web3.');
   }
     return App.initContracts();
