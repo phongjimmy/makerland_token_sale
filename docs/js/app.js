@@ -53,7 +53,8 @@ App = {
       }).watch(function(error, event) {
         console.log("event triggered", event);
         if (error) {
-          console.log(error);
+          $('#message').html("An error has occured. Please accept the transaction and make sure your balance is sufficient.");
+          App.userMessage = true;
         }
         App.render();
       })
@@ -77,6 +78,8 @@ App = {
       loader.show();
       content.hide();
     } else {
+      loader.hide();
+      content.hide();
       App.loading = false;
     }
     
