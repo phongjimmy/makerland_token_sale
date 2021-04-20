@@ -140,7 +140,12 @@ App = {
         $('#loader').hide();
         $('#content').show();
         // Wait for Sell event
-      });
+      }).catch(err) {
+        $('#loader').hide();
+        $('#content').hide();
+        $('#message').html(err.message);
+        App.userMessage = true;
+      }
   }
 }
 
