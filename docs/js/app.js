@@ -77,8 +77,6 @@ App = {
       loader.show();
       content.hide();
     } else {
-      loader.hide();
-      content.hide();
       App.loading = false;
     }
     
