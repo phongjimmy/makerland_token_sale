@@ -84,7 +84,7 @@ App = {
     // Load token sale contract
     App.contracts.DappTokenSale.deployed().then(function(instance) {
       dappTokenSaleInstance = instance;
-      return dappTokenSaleInstance.tokenPrice();
+      return dappTokenSaleInstance.methods.tokenPrice().call();
     }).then(function(tokenPrice) {
       App.tokenPrice = tokenPrice;
       $('.token-price').html(web3.fromWei(App.tokenPrice, "ether").toNumber());
