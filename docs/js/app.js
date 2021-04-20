@@ -60,17 +60,6 @@ App = {
   },
 
   render: function() {
-    if (App.loading) {
-      return;
-    }
-    App.loading = true;
-
-    var loader  = $('#loader');
-    var content = $('#content');
-
-    loader.show();
-    content.hide();
-
     // Load account data
     web3.eth.getCoinbase(function(err, account) {
       if(err === null) {
@@ -112,16 +101,11 @@ App = {
         return dappTokenInstance.balanceOf(App.account);
       }).then(function(balance) {
         $('.dapp-balance').html(balance.toNumber());
-        App.loading = false;
-        loader.hide();
-        content.show();
       })
     });
   },
 
   buyTokens: function() {
-    $('#content').hide();
-    $('#loader').show();
     var numberOfTokens = $('#numberOfTokens').val();
     App.contracts.DappTokenSale.deployed().then(function(instance) {
       return instance.buyTokens(numberOfTokens, {
@@ -132,8 +116,6 @@ App = {
     }).then(function(result) {
       console.log("Tokens bought...")
       $('form').trigger('reset') // reset number of tokens in form
-      $('#loader').hide();
-      $('#content').show();
       // Wait for Sell event
     });
   }
