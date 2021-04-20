@@ -149,8 +149,8 @@ App = {
   }
 }
 
-$(async () {
-  $(window).load(async() {
+$(async function() {
+  $(window).load(async function() {
     App.init();
   })
 });
