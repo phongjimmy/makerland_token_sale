@@ -16,6 +16,7 @@ App = {
    if (window.ethereum) {
     const web3 = new Web3(window.ethereum);
     App.web3Provider = window.ethereum;
+     console.log("using window.ethereum");
     try {
       await window.ethereum.enable();
     } catch (error) {
@@ -23,6 +24,7 @@ App = {
     }
   }
   else if (window.web3) {
+    console.log("using window.web3");
     const web3 = window.web3;
     App.web3Provider = window;
     console.log('Injected web3 detected.');
