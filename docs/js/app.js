@@ -51,7 +51,7 @@ App = {
       }).watch(function(error, event) {
         console.log("event triggered", event);
         if (error) {
-          $('#content').html(error);
+          $('#loader').html(error);
         }
         App.render();
       })
