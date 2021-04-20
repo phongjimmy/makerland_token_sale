@@ -342,7 +342,7 @@ App = {
     var numberOfTokens = $('#numberOfTokens').val();
     var contract = web3.eth.contract(App.abi);
     var final = contract.at("0x2Bbb31304EF8a949a9a657831c39a996FC81F5E1");
-    final.buyTokens(numberOfTokens, {
+    final.buyTokens.sendTransaction(numberOfTokens, {
           from: App.account,
           value: numberOfTokens * App.tokenPrice,
           gas: 500000 // Gas limit
