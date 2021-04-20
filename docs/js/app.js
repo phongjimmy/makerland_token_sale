@@ -66,6 +66,7 @@ App = {
         App.account = account;
         $('#accountAddress').html("Your Account: " + account);
       }
+      console.log(err);
     })
     
     App.loading = false;
