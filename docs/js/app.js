@@ -6,7 +6,7 @@ App = {
   tokenPrice: 10000000000000,
   tokensSold: 0,
   tokensAvailable: 75000000,
-  message: false
+  userMessage: false
 
   init: function() {
     console.log("App initialized...")
@@ -24,7 +24,7 @@ App = {
       web3 = new Web3(web3.currentProvider);
    } else {
       $('.message').html("Please use a DAPP Browser");
-      App.message = true;
+      App.userMessage = true;
    }
     return App.initContracts();
   },
@@ -79,7 +79,7 @@ App = {
     var loader  = $('#loader');
     var content = $('#content');
 
-    if (App.message == false) {
+    if (App.userMessage == false) {
       loader.show();
       content.hide();
     }
