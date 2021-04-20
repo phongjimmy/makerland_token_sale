@@ -4,16 +4,6 @@
   margin: 0 auto;
 }
 
-.first-half {
-  width: 60%;
-  float: left;
-}
-
-.second-half {
-  width: 40%;
-  float: right;
-}
-
 body {
   background-color: #d8e0e7;
 }
