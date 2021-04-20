@@ -116,19 +116,24 @@ App = {
     $('#content').hide();
     $('#loader').show();
     var numberOfTokens = $('#numberOfTokens').val();
-    App.contracts.DappTokenSale.deployed().then(function(instance) {
-      return instance.buyTokens.call(numberOfTokens, {
-        from: App.account,
-        value: numberOfTokens * App.tokenPrice,
-        gas: 500000 // Gas limit
+    try {
+      App.contracts.DappTokenSale.deployed().then(function(instance) {
+        return instance.buyTokens.call(numberOfTokens, {
+          from: App.account,
+          value: numberOfTokens * App.tokenPrice,
+          gas: 500000 // Gas limit
+        });
+      }).then(function(result) {
+        console.log("Tokens bought...")
+        $('form').trigger('reset') // reset number of tokens in form
+        $('#loader').hide();
+        $('#content').show();
+        // Wait for Sell event
       });
-    }).then(function(result) {
-      console.log("Tokens bought...")
-      $('form').trigger('reset') // reset number of tokens in form
-      $('#loader').hide();
-      $('#content').show();
-      // Wait for Sell event
-    });
+    }catch(err) {
+      console.log(err);
+      $('#content').html(err);
+    }
   }
 }
 
