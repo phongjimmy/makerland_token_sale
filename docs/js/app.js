@@ -17,6 +17,8 @@ App = {
     window.web3 = new Web3(window.web3.currentProvider);
     App.web3Provider = window.web3.currentProvider;
     window.ethereum.enable();
+   } else {
+      $('#loading').html("Please use a DAPP Browser");
    }
     return App.initContracts();
   },
