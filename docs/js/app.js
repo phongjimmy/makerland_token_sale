@@ -19,7 +19,7 @@ App = {
     App.web3Provider = window.web3.currentProvider;
     window.ethereum.enable();
    } else {
-      $('.message').html("Please use a DAPP Browser");
+      $('#message').html("Please use a DAPP Browser");
       App.userMessage = true;
    }
     return App.initContracts();
