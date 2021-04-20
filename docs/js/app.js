@@ -7,7 +7,7 @@ App = {
   tokensSold: 0,
   tokensAvailable: 75000000,
 
-  init: function() {
+  init: async function() {
     console.log("App initialized...")
     return App.initWeb3();
   },
@@ -37,7 +37,7 @@ App = {
     return App.initContracts();
   },
 
-  initContracts: function() {
+  initContracts: async function() {
     $.getJSON("MakerlandTokenSale.json", function(dappTokenSale) {
       App.contracts.DappTokenSale = TruffleContract(dappTokenSale);
       App.contracts.DappTokenSale.setProvider(App.web3Provider);
@@ -57,7 +57,7 @@ App = {
   },
 
   // Listen for events emitted from the contract
-  listenForEvents: function() {
+  listenForEvents: async function() {
     App.contracts.DappTokenSale.deployed().then(function(instance) {
       instance.Sell({}, {
         fromBlock: 0,
@@ -69,7 +69,7 @@ App = {
     })
   },
 
-  render: function() {
+  render: async function() {
     if (App.loading) {
       return;
     }
@@ -129,7 +129,7 @@ App = {
     });
   },
 
-  buyTokens: function() {
+  buyTokens: async function() {
     $('#content').hide();
     $('#loader').show();
     var numberOfTokens = $('#numberOfTokens').val();
@@ -149,8 +149,8 @@ App = {
   }
 }
 
-$(function() {
-  $(window).load(function() {
+$(async function() {
+  $(window).load(async function() {
     App.init();
   })
 });
