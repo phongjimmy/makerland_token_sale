@@ -20,6 +20,7 @@ body {
 .split {
     display: flex;
     width: 1000px;
+    margin: 0 auto;
 }
 
 .first-half-left {
