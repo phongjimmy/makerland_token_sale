@@ -17,49 +17,51 @@
         </style>
     </head>
     <body>
-        <ul class="ulnavbar">
-            <li class="linavbar"><a class="active" href="./index.html">Home: ICO</a></li>
-            <li class="linavbar"><a href="./discover.html">Discover the project</a></li>
-            <li class="linavbar"><a href="./about-us.html">About us</a></li>
-            <li class="linavbar"><a href="./contacts.html">Contacts</a></li>
-        </ul>
-        <div class="container" style="width: 650px;">
-            <div class="row">
-                <div class="col-lg-12">
-                    <center><h1 style="font-size: 40px;"><b>MAKERLAND TOKEN ICO SALE</b></h1></center>
-                    <hr />
-                    <br />
-                </div>
-                <div id="loader" style="display: none;">
-                    <p class="text-center">Loading...</p>
-                </div>
-                <center><span id="message"></span></center>
-                <div id="content" class="text-center" style="display: none;">
-                    <p>Introducing "Makerland Token" (MKL)!</p>
-                    Token price is <span class="token-price"></span> Ether. You currently have <span class="dapp-balance"></span>&nbsp;MKL. The ICO is presently <span class="status"></span>.
-                    <br />
-                    <br />
-                    <form onSubmit="App.buyTokens(); return false;" role="form">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="number" class="form-control input-lg" id="numberOfTokens" name="number" value="1" min="1" pattern="[0-9]">
-                                <span class="input-group-btn">
-                                    <button type="submit" class="btn btn-primary btn-lg">Buy Tokens</button>
-                                </span>
-                            </div>
+        <div id="wrapper">
+                <ul class="ulnavbar">
+                    <li class="linavbar"><a class="active" href="./index.html">Home: ICO</a></li>
+                    <li class="linavbar"><a href="./discover.html">Discover the project</a></li>
+                    <li class="linavbar"><a href="./about-us.html">About us</a></li>
+                    <li class="linavbar"><a href="./contacts.html">Contacts</a></li>
+                </ul>
+                <div class="container" style="width: 650px;">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <center><h1 style="font-size: 40px;"><b>MAKERLAND TOKEN ICO SALE</b></h1></center>
+                            <hr />
+                            <br />
                         </div>
-                    </form>
-                    <br />
-                    <div class="progress">
-                        <div id="progress" class="progress-bar progress-bar-striped active" aria-valuemin="0" aria-valuemax="100">
+                        <div id="loader" style="display: none;">
+                            <p class="text-center">Loading...</p>
+                        </div>
+                        <center><span id="message"></span></center>
+                        <div id="content" class="text-center" style="display: none;">
+                            <p>Introducing "Makerland Token" (MKL)!</p>
+                            Token price is <span class="token-price"></span> Ether. You currently have <span class="dapp-balance"></span>&nbsp;MKL. The ICO is presently <span class="status"></span>.
+                            <br />
+                            <br />
+                            <form onSubmit="App.buyTokens(); return false;" role="form">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control input-lg" id="numberOfTokens" name="number" value="1" min="1" pattern="[0-9]">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-primary btn-lg">Buy Tokens</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <br />
+                            <div class="progress">
+                                <div id="progress" class="progress-bar progress-bar-striped active" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+                            <p><span class="tokens-sold"></span> / <span class="tokens-available"></span> tokens sold</p>
+                            <hr />
+                            <p id="accountAddress"></p>
                         </div>
                     </div>
-                    <p><span class="tokens-sold"></span> / <span class="tokens-available"></span> tokens sold</p>
-                    <hr />
-                    <p id="accountAddress"></p>
                 </div>
             </div>
-        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/web3.min.js"></script>
