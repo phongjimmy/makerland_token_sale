@@ -32,3 +32,13 @@ body {
     width: 35%;
     float: right;
 }
+
+.first-half-right {
+    width: 60%;
+    float: right;
+}
+
+.second-half-left {
+    width: 35%;
+    float: left;
+}
