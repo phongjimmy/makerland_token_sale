@@ -25,3 +25,7 @@ li a:hover:not(.active) {
 .active {
   background-color: #2484d3;
 }
+
+@media screen and (max-width: 600px) {
+  .ulnavbar li:not(:first-child) {display: none;}
+}
