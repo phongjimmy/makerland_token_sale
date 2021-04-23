@@ -12,6 +12,10 @@ body {
   background-color: white;
 }
 
+.ul {
+   width: 1000px;
+}
+
 #wrapper {
     box-shadow: inset 0 0 490px grey;
     overflow: auto;
@@ -62,6 +66,9 @@ p {
         width: 100%;
     }
     p {
+        width: 100%;
+    }
+    .ul {
         width: 100%;
     }
 }
