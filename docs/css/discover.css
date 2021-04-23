@@ -37,6 +37,11 @@ body {
     float: right;
 }
 
+.img {
+    width: 500px;
+    height: 200px;
+}
+
 .first-half-right {
     width: 60%;
     float: right;
@@ -76,6 +81,10 @@ p {
 @media screen and (max-width: 1000px) {
     .split {
         width: 100%;
+    }
+    .img {
+        width: 100%;
+        height: 200px;
     }
 }
 
