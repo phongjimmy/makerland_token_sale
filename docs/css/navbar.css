@@ -29,7 +29,7 @@ li a:hover:not(.active) {
 @media screen and (max-width: 600px) {
   .ulnavbar li:not(:first-child) {display: none;}
   .ulnavbar.responsive {position: relative;}
-  .ulnavar .icon {
+  .ulnavbar .icon {
     float: right;
     display: block;
   }
