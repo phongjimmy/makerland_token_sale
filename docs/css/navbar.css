@@ -26,6 +26,10 @@ li a:hover:not(.active) {
   background-color: #2484d3;
 }
 
+.icon {
+  float: right;
+}
+
 @media screen and (max-width: 600px) {
   .ulnavbar li:not(:first-child) {display: none;}
   .ulnavbar.responsive {position: relative;}
