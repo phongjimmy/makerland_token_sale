@@ -34,7 +34,7 @@ li a:hover:not(.active) {
     right: 0;
     top: 0;
   }
-  .ulnavbar.responsive a {
+  .ulnavbar.responsive li {
     float: none;
     display: block;
     text-align: left;
