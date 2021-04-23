@@ -43,6 +43,14 @@ body {
     float: left;
 }
 
+h3 {
+    width: 1000px;
+}
+
+p {
+    width: 1000px;
+}
+
 @media screen and (max-width: 1200px) {
     h1 {
         font-size: 35px;
