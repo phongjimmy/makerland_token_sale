@@ -33,11 +33,14 @@ li a:hover:not(.active) {
 @media screen and (max-width: 600px) {
   .ulnavbar li:not(:first-child) {display: none;}
   .ulnavbar.responsive {position: relative;}
-  .ulnavar a.icon {
+  .ulnavar .icon {
     float: right;
     display: block;
   }
-  .ulnavbar.responsive .icon {
+}
+
+@media screen and (max-width: 600px) {
+.ulnavbar.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
