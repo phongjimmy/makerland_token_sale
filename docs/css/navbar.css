@@ -41,6 +41,7 @@ li a:hover:not(.active) {
 
 @media screen and (max-width: 600px) {
 .ulnavbar.responsive .icon {
+    display: block;
     position: absolute;
     right: 0;
     top: 0;
