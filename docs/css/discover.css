@@ -42,3 +42,12 @@ body {
     width: 35%;
     float: left;
 }
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 25px;
+    }
+    .container {
+        width: 100%;
+    }
+}
