@@ -9,6 +9,7 @@
         <link rel="shortcut icon" href="./small-logo.png">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/navbar.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
         <style>
             html, body, #wrapper { 
@@ -43,11 +44,14 @@
     </head>
     <body>
         <div id="wrapper">
-                <ul class="ulnavbar">
+                <ul class="ulnavbar" id="navbar">
                     <li class="linavbar"><a class="active" href="./index.html">Home: ICO</a></li>
                     <li class="linavbar"><a href="./discover.html">Discover the project</a></li>
                     <li class="linavbar"><a href="./about-us.html">About us</a></li>
                     <li class="linavbar"><a href="./contacts.html">Contacts</a></li>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
                 </ul>
                 <div class="container">
                     <div class="row">
@@ -87,6 +91,17 @@
                     </div>
                 </div>
             </div>
+        
+        <script>
+            function myFunction() {
+              var x = document.getElementById("navbar");
+              if (x.className === "ulnavbar") {
+                x.className += " responsive";
+              } else {
+                x.className = "ulnavbar";
+              }
+            }
+        </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/web3.min.js"></script>
